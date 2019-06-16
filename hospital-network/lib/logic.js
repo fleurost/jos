@@ -22,6 +22,8 @@
  * @param {org.hospital.record.UpdateDataMedis} tx
  * @transaction
  */
+
+/**
 async function UpdateDataMedis(tx) {
 
     tx.datamedis.tglMasuk = tx.newTglMasuk;
@@ -48,12 +50,15 @@ async function UpdateDataMedis(tx) {
             console.log(error);
         })
 }
+*/
 
 /**
  * Update Data Pasien
  * @param {org.hospital.record.UpdateDataPasien} tx
  * @transaction
  */
+
+/**
 async function UpdateDataPasien(tx) {
 
     tx.pasien.namaLengkap = tx.newNamaLengkap;
@@ -72,4 +77,4 @@ async function UpdateDataPasien(tx) {
             console.log(error);
         })
 }
-
+*/

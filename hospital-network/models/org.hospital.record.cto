@@ -18,7 +18,8 @@
 
 namespace org.hospital.record
 
-participant Petugas identified by nik {
+participant Petugas identified by idPetugas {
+  o String idPetugas
   o String nik
   o String namaLengkap
   o String tempatTglLahir
@@ -27,7 +28,8 @@ participant Petugas identified by nik {
   o String statusPernikahan
 }
 
-participant Dokter identified by nik {
+participant Dokter identified by idDokter {
+  o String idDokter
   o String nik
   o String namaLengkap
   o String tempatTglLahir
@@ -36,7 +38,8 @@ participant Dokter identified by nik {
   o String statusPernikahan
 }
 
-asset Pasien identified by nik {
+asset Pasien identified by idPasien {
+  o String idPasien
   o String nik
   o String namaLengkap
   o String tempatTglLahir
@@ -68,6 +71,7 @@ asset DataMedis identified by noRekMedis {
   o String rencanaTindakLanjut
 }
 
+/**
 transaction UpdateDataMedis {
   --> DataMedis datamedis
   o String newTglMasuk
@@ -97,3 +101,4 @@ transaction UpdateDataPasien {
   o String newStatusPernikahan
   o String newGoldar
 }
+*/

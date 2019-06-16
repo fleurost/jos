@@ -39,10 +39,35 @@ rule NetworkAdminToPetugas {
     action: ALLOW
 }
 
-rule PetugasToDokter {
-    description: "Grant business network Petugas full access to Dokter"
-    participant: "org.hospital.record.Petugas"
+rule NetworkAdminToDokter {
+    description: "Grant business network administrators full access to Petugas"
+    participant: "org.hyperledger.composer.system.NetworkAdmin"
     operation: ALL
+    resource: "org.hospital.record.Dokter"
+    action: ALLOW
+}
+
+rule NetworkAdminToPasien {
+    description: "Grant business network administrators full access to Petugas"
+    participant: "org.hyperledger.composer.system.NetworkAdmin"
+    operation: ALL
+    resource: "org.hospital.record.Pasien"
+    action: ALLOW
+}
+
+rule NetworkAdminToData {
+    description: "Grant business network administrators full access to Petugas"
+    participant: "org.hyperledger.composer.system.NetworkAdmin"
+    operation: ALL
+    resource: "org.hospital.record.DataMedis"
+    action: ALLOW
+}
+
+
+rule PetugasToDokter {
+    description: "Grant business network Petugas read access to Dokter"
+    participant: "org.hospital.record.Petugas"
+    operation: READ
     resource: "org.hospital.record.Dokter"
     action: ALLOW
 }
@@ -63,6 +88,7 @@ rule PetugasToPasien {
     action: ALLOW
 }
 
+/**
 rule PetugasToUpdateDataMedis {
     description: "Grant business network Petugas update access to Data Medis"
     participant: "org.hospital.record.Petugas"
@@ -78,6 +104,7 @@ rule PetugasToUpdateDataPasien {
     resource: "org.hospital.record.UpdateDataPasien"
     action: ALLOW
 }
+*/
 
 rule DokterToData {
     description: "Grant business network Dokter read access to Data"
