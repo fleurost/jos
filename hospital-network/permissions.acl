@@ -64,6 +64,14 @@ rule PetugasToData {
     action: ALLOW
 }
 
+rule PetugasToCheckIntegrity {
+    description: "Grant business network Petugas full access to Data"
+    participant: "org.hospital.record.Petugas"
+    operation: CREATE
+    resource: "org.hospital.record.CheckIntegrity"
+    action: ALLOW
+}
+
 rule PetugasToPasien {
     description: "Grant business network Petugas full access to Pasien"
     participant: "org.hospital.record.Petugas"

@@ -78,3 +78,22 @@ async function UpdateDataPasien(tx) {
         })
 }
 */
+
+/**
+ * Handle a transaction that returns a string.
+ * @param {org.hospital.record.CheckIntegrity} transaction
+ * @transaction
+ */
+
+async function CheckIntegrity(transaction) {
+            return getAssetRegistry('org.hospital.record.DataMedis').then(function (dataMedisRegistry) {
+                return dataMedisRegistry.getAll().then(function (dataMedisList) {
+                    var factory = getFactory();
+                    var newEvent = factory.newEvent('org.hospital.record', 'DataMedisSent');
+                    newEvent.dataMedisList = dataMedisList;
+                    emit(newEvent);
+                }).catch(function (error) {
+                    console.error(error);
+                });
+            });
+}
