@@ -15,6 +15,7 @@
 /**
  * Sample access control list.
  */
+
 rule SystemACL {
   description:  "System ACL to permit all access"
   participant: "org.hyperledger.composer.system.Participant"
@@ -47,23 +48,6 @@ rule NetworkAdminToDokter {
     action: ALLOW
 }
 
-rule NetworkAdminToPasien {
-    description: "Grant business network administrators full access to Petugas"
-    participant: "org.hyperledger.composer.system.NetworkAdmin"
-    operation: ALL
-    resource: "org.hospital.record.Pasien"
-    action: ALLOW
-}
-
-rule NetworkAdminToData {
-    description: "Grant business network administrators full access to Petugas"
-    participant: "org.hyperledger.composer.system.NetworkAdmin"
-    operation: ALL
-    resource: "org.hospital.record.DataMedis"
-    action: ALLOW
-}
-
-
 rule PetugasToDokter {
     description: "Grant business network Petugas read access to Dokter"
     participant: "org.hospital.record.Petugas"
@@ -75,7 +59,7 @@ rule PetugasToDokter {
 rule PetugasToData {
     description: "Grant business network Petugas full access to Data"
     participant: "org.hospital.record.Petugas"
-    operation: ALL
+    operation: CREATE,READ,UPDATE
     resource: "org.hospital.record.DataMedis"
     action: ALLOW
 }
@@ -87,24 +71,6 @@ rule PetugasToPasien {
     resource: "org.hospital.record.Pasien"
     action: ALLOW
 }
-
-/**
-rule PetugasToUpdateDataMedis {
-    description: "Grant business network Petugas update access to Data Medis"
-    participant: "org.hospital.record.Petugas"
-    operation: CREATE
-    resource: "org.hospital.record.UpdateDataMedis"
-    action: ALLOW
-}
-
-rule PetugasToUpdateDataPasien {
-    description: "Grant business network Petugas update access to Data Pasien"
-    participant: "org.hospital.record.Petugas"
-    operation: CREATE
-    resource: "org.hospital.record.UpdateDataPasien"
-    action: ALLOW
-}
-*/
 
 rule DokterToData {
     description: "Grant business network Dokter read access to Data"

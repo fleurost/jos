@@ -47,10 +47,10 @@ asset Pasien identified by idPasien {
   o String umur
   o String alamat
   o String statusPernikahan
-  o String goldar
 }
 
-asset DataMedis identified by noRekMedis {
+asset DataMedis identified by idRekMedis {
+  o String idRekMedis
   o String noRekMedis
   --> Pasien pasien
   --> Dokter dokter
