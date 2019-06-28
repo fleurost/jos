@@ -75,7 +75,7 @@ transaction CheckIntegrity {
 }
 
 event DataMedisSent {
-  o DataMedis[] dataMedisList
+  o String[] diagnosaPrimer
 }
 
 /**
