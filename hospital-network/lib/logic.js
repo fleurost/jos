@@ -41,3 +41,55 @@ async function CheckIntegrity(transaction) {
         });
     });
 }
+
+
+/**
+ * Handle a transaction that returns a string.
+ * @param {org.hospital.record.UpdateDataMedis} tx
+ * @transaction
+ */
+async function UpdateDataMedis(tx) {
+    var oldNoRekMedis = tx.sampData.noRekMedis;
+    var oldPasien = tx.sampData.pasien;
+    var oldDokter = tx.sampData.dokter;
+    var oldTglMasuk = tx.sampData.tglMasuk;
+    var oldTglKeluar = tx.sampData.tglKeluar;
+    var oldAlasanMasuk = tx.sampData.alasanMasuk;
+    var oldRujukan = tx.sampData.rujukan;
+    var oldAnamnesis = tx.sampData.anamnesis;
+    var oldPemeriksaanFisik = tx.sampData.pemeriksaanFisik;
+    var oldRiwayatAlergi = tx.sampData.riwayatAlergi;
+    var oldDiagnosaPrimer = tx.sampData.diagnosaPrimer;
+    var oldDiagnosaSekunder = tx.sampData.diagnosaSekunder;
+    var oldTerapiDiRs = tx.sampData.terapiDiRs;
+    var oldTindakan = tx.sampData.tindakan;
+    var oldPrognosaPenyakit = tx.sampData.prognosaPenyakit;
+    var oldAlasanPulang = tx.sampData.alasanPulang;
+    var oldKondisiSaatPulang = tx.sampData.kondisiSaatPulang;
+    var oldRencanaTindakLanjut = tx.sampData.rencanaTindakLanjut;
+    tx.sampData.noRekMedis = tx.newNoRekMedis;
+    tx.sampData.pasien = tx.newPasien;
+    tx.sampData.dokter = tx.newDokter;
+    tx.sampData.tglMasuk = tx.newTglMasuk;
+    tx.sampData.tglKeluar = tx.newTglKeluar;
+    tx.sampData.alasanMasuk = tx.newAlasanMasuk;
+    tx.sampData.rujukan = tx.newRujukan;
+    tx.sampData.anamnesis = tx.newAnamnesis;
+    tx.sampData.pemeriksaanFisik = tx.newPemeriksaanFisik;
+    tx.sampData.riwayatAlergi = tx.newRiwayatAlergi;
+    tx.sampData.diagnosaPrimer = tx.newDiagnosaPrimer;
+    tx.sampData.diagnosaSekunder = tx.newDiagnosaSekunder;
+    tx.sampData.terapiDiRs = tx.newTerapiDiRs;
+    tx.sampData.tindakan = tx.newTindakan;
+    tx.sampData.prognosaPenyakit = tx.newPrognosaPenyakit;
+    tx.sampData.alasanPulang = tx.newAlasanPulang;
+    tx.sampData.kondisiSaatPulang = tx.newKondisiSaatPulang;
+    tx.sampData.rencanaTindakLanjut = tx.newRencanaTindakLanjut;
+
+    return getAssetRegistry('org.hospital.record.DataMedis').then(function (assetRegistry) {
+        return assetRegistry.update(tx.sampData);
+    })
+    .catch(function (error) {
+        console.error(error);
+    });
+}

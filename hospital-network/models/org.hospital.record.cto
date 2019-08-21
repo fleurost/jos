@@ -71,6 +71,53 @@ asset DataMedis identified by idRekMedis {
   o String rencanaTindakLanjut
 }
 
+/**
+transaction TambahDataMedis{
+  o String idRekMedis
+  o String noRekMedis
+  --> Pasien pasien
+  --> Dokter dokter
+  o String tglMasuk
+  o String tglKeluar
+  o String alasanMasuk
+  o String rujukan
+  o String anamnesis
+  o String pemeriksaanFisik
+  o String riwayatAlergi
+  o String diagnosaPrimer
+  o String diagnosaSekunder
+  o String terapiDiRs
+  o String tindakan
+  o String prognosaPenyakit
+  o String alasanPulang
+  o String kondisiSaatPulang
+  o String rencanaTindakLanjut
+}
+*/
+
+transaction UpdateDataMedis {
+  --> DataMedis sampData
+  o String newNoRekMedis
+  --> Pasien newPasien
+  --> Dokter newDokter
+  o String newTglMasuk
+  o String newTglKeluar
+  o String newAlasanMasuk
+  o String newRujukan
+  o String newAnamnesis
+  o String newPemeriksaanFisik
+  o String newRiwayatAlergi
+  o String newDiagnosaPrimer
+  o String newDiagnosaSekunder
+  o String newTerapiDiRs
+  o String newTindakan
+  o String newPrognosaPenyakit
+  o String newAlasanPulang
+  o String newKondisiSaatPulang
+  o String newRencanaTindakLanjut
+}
+
+
 transaction CheckIntegrity {
 }
 

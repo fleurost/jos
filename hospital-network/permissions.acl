@@ -48,6 +48,22 @@ rule NetworkAdminToDokter {
     action: ALLOW
 }
 
+rule NetworkAdminToData {
+    description: "Grant business network administrators full access to Data"
+    participant: "org.hyperledger.composer.system.NetworkAdmin"
+    operation: CREATE,READ,UPDATE
+    resource: "org.hospital.record.DataMedis"
+    action: ALLOW
+}
+
+rule NetworkAdminToPasien {
+    description: "Grant business network administrators full access to Pasien"
+    participant: "org.hyperledger.composer.system.NetworkAdmin"
+    operation: ALL
+    resource: "org.hospital.record.Pasien"
+    action: ALLOW
+}
+
 rule PetugasToDokter {
     description: "Grant business network Petugas read access to Dokter"
     participant: "org.hospital.record.Petugas"
@@ -69,6 +85,22 @@ rule PetugasToCheckIntegrity {
     participant: "org.hospital.record.Petugas"
     operation: CREATE
     resource: "org.hospital.record.CheckIntegrity"
+    action: ALLOW
+}
+/**
+rule PetugasToTambahDataMedis {
+    description: "Grant business network Petugas full access to Data"
+    participant: "org.hospital.record.Petugas"
+    operation: CREATE
+    resource: "org.hospital.record.TambahDataMedis"
+    action: ALLOW
+}
+*/
+rule PetugasToUpdateDataMedis {
+    description: "Grant business network Petugas full access to Data"
+    participant: "org.hospital.record.Petugas"
+    operation: CREATE
+    resource: "org.hospital.record.UpdateDataMedis"
     action: ALLOW
 }
 
